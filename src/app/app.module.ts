@@ -27,6 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 //Retira o erro com o Map na utilizacao de Observabol response
 import 'rxjs/add/operator/map';
+import { LoginService } from './services/login.service';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -53,7 +55,9 @@ import 'rxjs/add/operator/map';
     { provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
     AuthenticationService,
-    TokenApiService
+    TokenApiService,
+    LoginService,
+    StorageService
   ],
 })
 export class AppModule {
