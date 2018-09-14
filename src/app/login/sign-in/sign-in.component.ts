@@ -46,16 +46,21 @@ export class SignInComponent {
       
       return
     }
-    this.authenticationService.login(this.user.email, this.user.password)
-      .subscribe(
-        data => {
-          this.toastr.success('Sucesso', 'Login realizado com sucesso');
-          this.router.navigate(['/pages/dashboard']);
-        },
-        error => {
-          this.toastr.error('Error', 'Falha ao realizar Login');
-          console.log(error)
-        });
+    localStorage.setItem('currentUser', 'teste');
+    this.toastr.success('Sucesso', 'Login realizado com sucesso');
+    this.router.navigate(['/pages/dashboard']);
+    
+    //So terminar
+    // this.authenticationService.login(this.user.email, this.user.password)
+    //   .subscribe(
+    //     data => {
+    //       this.toastr.success('Sucesso', 'Login realizado com sucesso');
+    //       this.router.navigate(['/pages/dashboard']);
+    //     },
+    //     error => {
+    //       this.toastr.error('Error', 'Falha ao realizar Login');
+    //       console.log(error)
+    //     });
 
   }
 

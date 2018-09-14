@@ -22,7 +22,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuard } from './guards/auth.guard'
 import { AuthenticationService } from './services/authentication.service'
 import { TokenApiService } from './services/tokenApi.service'
-import { CredentiationService } from './services/credentiation.service'
 
 import { ToastrModule } from 'ngx-toastr';
 
@@ -54,8 +53,7 @@ import 'rxjs/add/operator/map';
     { provide: APP_BASE_HREF, useValue: '/' },
     AuthGuard,
     AuthenticationService,
-    TokenApiService,
-    CredentiationService
+    TokenApiService
   ],
 })
 export class AppModule {
