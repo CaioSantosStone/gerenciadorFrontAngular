@@ -2,11 +2,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../services/authentication.service'
 import { ToastrService } from 'ngx-toastr';
 import { LoginService } from '../../services/login.service';
 import { StorageService } from '../../services/storage.service';
-
+import { AuthenticationService } from '../../services/authentication.service';
 @Component({
   selector: 'ngx-sign-in',
   styleUrls: ['./sign-in.component.scss'],
@@ -29,7 +28,7 @@ export class SignInComponent {
     fb: FormBuilder,
     private router: Router,
     private toastr: ToastrService,
-    private loginService: LoginService,
+    private authenticationService: AuthenticationService,
     private storageService: StorageService
   ) {
     this.form = fb.group({
@@ -45,16 +44,16 @@ export class SignInComponent {
     try {
       this.submitted = true;
       if (this.form.invalid) {
-        this.toastr.error('Erro', 'Verifique os campos e tente novamente');
+        this.toastr.error('Verifique os campos e tente novamente', 'Erro');
         return
       };
 
-      const data: any = await this.loginService.login(this.user);
+      const data: any = await this.authenticationService.login(this.user);
 
       this.storageService.set('token', data.token);
       this.storageService.set('user', data.user);
- 
-      this.toastr.success('Sucesso', 'Login realizado com sucesso');
+
+      this.toastr.success('Login realizado com sucesso', 'Sucesso');
       this.router.navigateByUrl('/pages/dashboard');
     } catch (err) {
       console.log(err);
