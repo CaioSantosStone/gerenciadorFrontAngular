@@ -9,23 +9,31 @@ import { AuthGuard } from "../guards/auth.guard"
 
 const routes: Routes = [
   {
-  path: '',
-  component: PagesComponent,
-  canActivate: [AuthGuard],
-  children: [{
-    path: 'dashboard',
-    component: DashboardComponent,
-  },
-  {
-    path: 'get-alunos',
-    loadChildren: './get-alunos/get-alunos.module#getAlunosModule',
-  },
-   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }],
-}];
+    component: PagesComponent,
+    canActivate: [AuthGuard],
+    children: [{
+      path: 'dashboard',
+      component: DashboardComponent,
+    },
+    {
+      path: 'get-alunos',
+      loadChildren: './get-alunos/get-alunos.module#getAlunosModule',
+    },
+    {
+      path: 'conteudo',
+      loadChildren: './conteudo/conteudo.module#ConteudoModule',
+    },
+    // {
+    //   path: 'conteudo/cadastro',
+    //   loadChildren: './conteudo/conteudo.module#ConteudoModule',
+    // },
+    {
+      path: '',
+      redirectTo: 'dashboard',
+      pathMatch: 'full',
+    }],
+  }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

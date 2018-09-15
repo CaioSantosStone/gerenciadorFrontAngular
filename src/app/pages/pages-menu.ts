@@ -16,5 +16,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/get-alunos/option-get-alunos',
       }
     ]
+  },
+  {
+    title: 'Conteúdo',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Visualizar conteúdos',
+        link: '/pages/conteudo/listagem',
+      }, {
+        title: 'Cadastrar conteúdos',
+        link: '/pages/conteudo/cadastro',
+      }
+    ]
   }
 ];
