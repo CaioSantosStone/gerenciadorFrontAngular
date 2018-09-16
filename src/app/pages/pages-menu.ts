@@ -27,6 +27,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }, {
         title: 'Cadastrar conteúdos',
         link: '/pages/conteudo/cadastro',
+      }, 
+    ]
+  },
+  {
+    title: 'Chat',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Mensagens',
+        link: '/pages/chat/messages',
       }
     ]
   }
