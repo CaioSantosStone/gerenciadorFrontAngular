@@ -32,7 +32,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Chat',
-    icon: 'nb-compose',
+    icon: 'nb-email',
     children: [
       {
         title: 'Mensagens',
