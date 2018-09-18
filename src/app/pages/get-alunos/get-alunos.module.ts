@@ -6,7 +6,8 @@ import { TextMaskModule } from 'angular2-text-mask';
 
 
 import { getAlunosComponent } from './get-alunos.component'
-import { OptionGetAlunosComponent } from './option-get-alunos/option-get-alunos.component'
+import { OptionGetAlunosComponent } from './option-get-alunos/option-get-alunos.component';
+import { OptionCadastroAlunoComponent } from './option-cadastro-aluno/option-cadastro-aluno.component'
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { OptionGetAlunosComponent } from './option-get-alunos/option-get-alunos.
   declarations: [
     getAlunosComponent,
     OptionGetAlunosComponent,
+    OptionCadastroAlunoComponent,
     ...routedComponents,
   ],
 })

@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>Cadastro de usuário</h5>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Nome</label>
+        <input type="text" [(ngModel)]="user.name" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">CPF</label>
+        <input type="text" [(ngModel)]="user.cpf" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">E-mail</label>
+        <input type="text" [(ngModel)]="user.email" class="form-control">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="">Data de nascimento</label>
+        <input type="date" [(ngModel)]="user.birth" class="form-control">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="">Ativo</label>
+        <input type="checkbox" [(ngModel)]="user.enable" class="form-control">
+      </div>
+    </div>
+    <div class="col-6">
+      <label for="">Selecione o tipo de usuário</label>
+      <select name="" id="" [(ngModel)]="user.type" class="form-control">
+        <option [value]="undefined" selected disabled>Tipo de usuário</option>
+        <option value="STUDENT">Aluno</option>
+        <option value="TEACHER">Professor</option>
+      </select>
+    </div>
+    <div class="col-12 text-right">
+      <button class="btn btn-danger" (click)="cancel()">Cancelar</button> &nbsp;
+      <button class="btn btn-success" (click)="save()">Salvar</button>
+    </div>
+  </div>
+</div>

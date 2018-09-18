@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import 'rxjs/add/operator/map';
 import { LoginService } from './services/login.service';
 import { StorageService } from './services/storage.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,6 +58,7 @@ import { StorageService } from './services/storage.service';
     TokenApiService,
     LoginService,
     StorageService,
+    UserService,
   ],
 })
 export class AppModule {

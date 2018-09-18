@@ -5,6 +5,7 @@ import { getAlunosComponent } from './get-alunos.component';
 
 //Componente secundarios dentro do template
 import { OptionGetAlunosComponent } from './option-get-alunos/option-get-alunos.component';
+import { OptionCadastroAlunoComponent } from './option-cadastro-aluno/option-cadastro-aluno.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,6 +13,9 @@ const routes: Routes = [{
   children: [{
     path: 'option-get-alunos',
     component: OptionGetAlunosComponent,
+  }, {
+    path: 'option-cadastro-alunos',
+    component: OptionCadastroAlunoComponent,
   }],
 }];
 
@@ -30,4 +34,5 @@ export class getAlunosRoutingModule {
 export const routedComponents = [
   getAlunosComponent,
   OptionGetAlunosComponent,
+  OptionCadastroAlunoComponent,
 ];

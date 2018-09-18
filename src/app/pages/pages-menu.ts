@@ -14,6 +14,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Consulta Alunos',
         link: '/pages/get-alunos/option-get-alunos',
+      }, {
+        title: 'Cadastrar Aluno',
+        link: '/pages/get-alunos/option-cadastro-alunos',
       }
     ]
   },
@@ -27,7 +30,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }, {
         title: 'Cadastrar conteúdos',
         link: '/pages/conteudo/cadastro',
-      }, 
+      },
     ]
   },
   {
