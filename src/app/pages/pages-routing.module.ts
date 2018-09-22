@@ -17,12 +17,16 @@ const routes: Routes = [
       component: DashboardComponent,
     },
     {
-      path: 'get-alunos',
-      loadChildren: './get-alunos/get-alunos.module#getAlunosModule',
+      path: 'user',
+      loadChildren: './user/user.module#UserModule',
     },
     {
-      path: 'conteudo',
-      loadChildren: './conteudo/conteudo.module#ConteudoModule',
+      path: 'content',
+      loadChildren: './content/content.module#ContentModule',
+    },
+    {
+      path: 'class',
+      loadChildren: './class/class.module#ClassModule',
     },
     {
       path: 'chat',

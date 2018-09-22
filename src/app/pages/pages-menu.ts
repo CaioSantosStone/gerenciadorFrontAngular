@@ -8,28 +8,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
-    title: 'Consulta Alunos',
+    title: 'Aulas',
     icon: 'nb-compose',
     children: [
       {
-        title: 'Consulta Alunos',
-        link: '/pages/get-alunos/option-get-alunos',
+        title: 'Visualizar aulas',
+        link: '/pages/class/list',
       }, {
-        title: 'Cadastrar Aluno',
-        link: '/pages/get-alunos/option-cadastro-alunos',
-      }
-    ]
-  },
-  {
-    title: 'Conteúdo',
-    icon: 'nb-compose',
-    children: [
-      {
-        title: 'Visualizar conteúdos',
-        link: '/pages/conteudo/listagem',
-      }, {
-        title: 'Cadastrar conteúdos',
-        link: '/pages/conteudo/cadastro',
+        title: 'Cadastrar aula',
+        link: '/pages/class/register',
       },
     ]
   },
@@ -42,5 +29,31 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/chat/messages',
       }
     ]
-  }
+  },
+  {
+    title: 'Conteúdo',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Visualizar conteúdos',
+        link: '/pages/content/manager',
+      }, {
+        title: 'Cadastrar conteúdos',
+        link: '/pages/content/register',
+      },
+    ]
+  },
+  {
+    title: 'Usuários',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Consulta de usuários',
+        link: '/pages/user/list',
+      }, {
+        title: 'Cadastrar usuário',
+        link: '/pages/user/register',
+      }
+    ]
+  },
 ];
