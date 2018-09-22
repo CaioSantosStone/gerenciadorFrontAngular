@@ -2,6 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import {
   NbActionsModule,
@@ -57,6 +58,7 @@ const NB_MODULES = [
   NbSearchModule,
   NbSidebarModule,
   NbCheckboxModule,
+  Ng2SmartTableModule,
   NbPopoverModule,
   NbContextMenuModule,
   NgbModule,

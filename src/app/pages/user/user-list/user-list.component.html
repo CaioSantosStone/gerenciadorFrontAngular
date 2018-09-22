@@ -1,6 +1,10 @@
 <nb-card>
-  <nb-card-header>Filtro de Busca.</nb-card-header>
+  <nb-card-header>
+    Usuários
+  </nb-card-header>
+
   <nb-card-body>
-    Conteudo do Filtro
+    <ng2-smart-table [settings]="settings" (edit)="edit()" [source]="source"  (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
   </nb-card-body>
 </nb-card>
