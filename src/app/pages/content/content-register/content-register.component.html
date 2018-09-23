@@ -1,3 +1,30 @@
-<p>
-  content-register works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>Cadastro de Conteúdo</h5>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Título</label>
+        <input type="text" [(ngModel)]="content.title" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Subtítulo</label>
+        <input type="text" [(ngModel)]="content.subtitle" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Descrição</label>
+        <textarea name="" id="" cols="30" rows="4" [(ngModel)]="content.description" class="form-control"></textarea>
+      </div>
+    </div>
+    <div class="col-12 text-right">
+      <button class="btn btn-danger" (click)="goToList()">Cancelar</button> &nbsp;
+      <button class="btn btn-success" (click)="save()" *ngIf="!id">Salvar</button>
+      <button class="btn btn-success" (click)="update()" *ngIf="id">Atualizar</button>
+    </div>
+  </div>
+</div>
