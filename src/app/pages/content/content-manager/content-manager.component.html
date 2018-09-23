@@ -12,6 +12,19 @@
 
   <nb-card-body>
     <div class="row">
+      <div class="col-md-4">
+        <h5>Filtros</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <label for="">Título</label>
+        <input type="text" (keyup)="keyUpTitle.next($event)" placeholder="Digite o título do conteúdo..." [(ngModel)]="filters.title"
+          class="form-control">
+      </div>
+    </div>
+    <hr>
+    <div class="row">
       <div class="col-md-12">
         <ng2-smart-table [settings]="settings" (delete)="delete($event)" (edit)="goToContentRegister($event)" [source]="source">
         </ng2-smart-table>

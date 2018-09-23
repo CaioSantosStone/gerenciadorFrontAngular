@@ -26,7 +26,7 @@ export class ContentService {
   }
 
   update(content): any {
-    return this.httpClientService.put(this.url, content);
+    return this.httpClientService.put(`${this.url}/${content._id}`, content);
   }
 
   delete(contentId): any {
@@ -37,6 +37,7 @@ export class ContentService {
     return {
       mode: 'external',
       hideSubHeader: true,
+      noDataMessage: 'Nenhum conteúdo cadastrado',
       edit: {
         editButtonContent: '<i class="nb-edit"></i>',
         saveButtonContent: '<i class="nb-checkmark"></i>',

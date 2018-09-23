@@ -38,6 +38,7 @@ export class UserService {
   getGridConfig() {
     return {
       mode: 'external',
+      noDataMessage: 'Nenhum usuário cadastrado',
       hideSubHeader: true,
       edit: {
         editButtonContent: '<i class="nb-edit"></i>',

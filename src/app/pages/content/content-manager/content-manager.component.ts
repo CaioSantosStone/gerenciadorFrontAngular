@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class ContentManagerComponent implements OnInit {
 
-  keyUpName: Search = new Search(() => this.loadContents());
+  keyUpTitle: Search = new Search(() => this.loadContents());
 
   settings: any = {};
   filters: any = {};
