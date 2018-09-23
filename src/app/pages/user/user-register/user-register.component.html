@@ -6,7 +6,7 @@
     <div class="col-12">
       <div class="form-group">
         <label for="">Nome</label>
-        <input type="text" [(ngModel)]="user.name" class="form-control">
+        <input type="text" [(ngModel)]="user.fullName" class="form-control">
       </div>
     </div>
     <div class="col-12">
@@ -21,10 +21,16 @@
         <input type="text" [(ngModel)]="user.email" class="form-control">
       </div>
     </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Password</label>
+        <input type="password" [(ngModel)]="user.password" class="form-control">
+      </div>
+    </div>
     <div class="col-6">
       <div class="form-group">
         <label for="">Data de nascimento</label>
-        <input type="date" [(ngModel)]="user.birth" class="form-control">
+        <input type="date" [(ngModel)]="birth" class="form-control">
       </div>
     </div>
     <div class="col-6">
@@ -35,15 +41,17 @@
     </div>
     <div class="col-6">
       <label for="">Selecione o tipo de usuário</label>
-      <select name="" id="" [(ngModel)]="user.type" class="form-control">
+      <select name="" id="" [(ngModel)]="user.profileType" class="form-control">
         <option [value]="undefined" selected disabled>Tipo de usuário</option>
+        <option value="ADMIN">Administrador</option>
         <option value="STUDENT">Aluno</option>
         <option value="TEACHER">Professor</option>
       </select>
     </div>
     <div class="col-12 text-right">
-      <button class="btn btn-danger" (click)="cancel()">Cancelar</button> &nbsp;
-      <button class="btn btn-success" (click)="save()">Salvar</button>
+      <button class="btn btn-danger" (click)="goToList()">Cancelar</button> &nbsp;
+      <button class="btn btn-success" (click)="save()" *ngIf="!id">Salvar</button>
+      <button class="btn btn-success" (click)="update()" *ngIf="id">Atualizar</button>
     </div>
   </div>
 </div>

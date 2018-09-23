@@ -19,7 +19,7 @@ export class AuthenticationService {
     }
 
     public login(data = {}) {
-        return this.http.post(`${environment.API_URL}/users/login`, data).toPromise()
+        return this.http.post(`${environment.API_URL}/users/login`, data).map(res => res.json()).toPromise()
     }
 
     getLogged() {

@@ -22,7 +22,7 @@ export class HttpClientService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `${token}`,
       })
     };
   }

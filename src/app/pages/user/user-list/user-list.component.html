@@ -1,10 +1,46 @@
 <nb-card>
   <nb-card-header>
-    Usuários
+    <div class="row">
+      <div class="col-md-6">
+        <h4> Usuários </h4>
+      </div>
+      <div class="col-md-6 text-right">
+        <button class="btn btn-success" (click)="goToUserRegister()">Novo usuário </button>
+      </div>
+    </div>
   </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" (edit)="edit()" [source]="source"  (deleteConfirm)="onDeleteConfirm($event)">
-    </ng2-smart-table>
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Filtros</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <label for="">Nome</label>
+        <input type="text" (keyup)="keyUpName.next($event)" placeholder="Digite o nome do usuário..." [(ngModel)]="filters.fullName" class="form-control">
+      </div>
+      <div class="col-sm-4">
+        <label for="">CPF</label>
+        <input type="text" (keyup)="keyUpCpf.next($event)" placeholder="Digite o cpf do usuário..." [(ngModel)]="filters.cpf" class="form-control">
+      </div>
+      <div class="col-sm-2">
+        <label for="">Tipo de usuário</label>
+        <select name="" id="" [(ngModel)]="filters.profileType" (change)="loadUsers()" class="form-control">
+          <option [value]="undefined">Todos</option>
+          <option value="ADMIN">Administrador</option>
+          <option value="STUDENT">Aluno</option>
+          <option value="TEACHER">Professor</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <ng2-smart-table [settings]="settings" (delete)="delete($event)" (edit)="goToUserRegister($event)" [source]="source">
+        </ng2-smart-table>
+      </div>
+    </div>
   </nb-card-body>
 </nb-card>
