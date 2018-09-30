@@ -12,6 +12,7 @@ import { CoreModule } from './@core/core.module';
 import { LoginModule } from './login/login.module';
 import { HttpModule } from '@angular/http';
 import { TextMaskModule } from 'angular2-text-mask';
+import { NgUploaderModule } from 'ngx-uploader';
 
 
 import { AppComponent } from './app.component';
@@ -47,7 +48,8 @@ import { UserService } from './services/user.service';
       preventDuplicates: true,
     }),
     LoginModule,
-    TextMaskModule
+    TextMaskModule,
+    NgUploaderModule
 
   ],
   bootstrap: [AppComponent],

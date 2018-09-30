@@ -17,8 +17,28 @@
     </div>
     <div class="col-12">
       <div class="form-group">
-        <label for="">Descrição</label>
+        <label for="">Conteúdo</label>
         <textarea name="" id="" cols="30" rows="4" [(ngModel)]="content.description" class="form-control"></textarea>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Url video do youtube</label>
+        <input type="text" [(ngModel)]="content.subtitle" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <button  class="btn btn-primary" (click)="newImg()">
+          <i class="fa fa-plus" aria-hidden="true"></i> Adicionar imagens
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6" *ngFor='let img of arrayImg'>
+        <div class="form-group">
+          <ba-picture-uploader [type]="imgLogo" [guid]="234234324" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+        </div>
       </div>
     </div>
     <div class="col-12 text-right">

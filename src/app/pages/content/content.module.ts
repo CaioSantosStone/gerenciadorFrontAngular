@@ -5,6 +5,8 @@ import { ContentRegisterComponent } from './content-register/content-register.co
 import { ContentComponent } from './content/content.component';
 import { routedComponents, ContentRoutingModule } from './content-routing.module';
 import { ThemeModule } from '../../@theme/theme.module';
+import { BaPictureUploader } from './content-register/picture-uploader/picture-uploader.component';
+
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { ThemeModule } from '../../@theme/theme.module';
     ContentManagerComponent, 
     ContentRegisterComponent, 
     ContentComponent,
+    BaPictureUploader,
     ...routedComponents
   ]
 })

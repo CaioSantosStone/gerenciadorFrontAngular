@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContentService } from '../../../services/content.service';
+import { NgUploaderOptions } from 'ngx-uploader';
 
 @Component({
   selector: 'ngx-content-register',
@@ -19,6 +20,10 @@ export class ContentRegisterComponent implements OnInit {
     private toastr: ToastrService,
   ) { }
 
+  arrayImg = []
+
+  defaultPicture = "https://blog.adias.com.br/wp-content/uploads/2017/01/59382-academia-com-arcondicionado-afinal-pode-ou-nao-pode.jpg"
+
   ngOnInit() {
     this.route.queryParams
       .subscribe(params => {
@@ -28,6 +33,10 @@ export class ContentRegisterComponent implements OnInit {
         };
       });
   }
+
+  public uploaderOptions: NgUploaderOptions = {
+    url: '',
+  };
 
   async loadContent() {
     try {
@@ -59,6 +68,10 @@ export class ContentRegisterComponent implements OnInit {
       this.toastr.success(message);
     }
     this.router.navigateByUrl('/pages/content/manager');
+  }
+
+  newImg(){
+    this.arrayImg.push(1)
   }
 
 }
