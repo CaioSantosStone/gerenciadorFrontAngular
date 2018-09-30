@@ -32,6 +32,10 @@ const routes: Routes = [
       path: 'chat',
       loadChildren: './chat/chat.module#ChatModule',
     },
+    {
+      path: 'evaluation',
+      loadChildren: './evaluation/evaluation.module#EvaluationModule',
+    },
     // {
     //   path: 'conteudo/cadastro',
     //   loadChildren: './conteudo/conteudo.module#ConteudoModule',

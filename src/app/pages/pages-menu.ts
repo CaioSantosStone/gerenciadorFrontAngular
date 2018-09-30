@@ -56,4 +56,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
       }
     ]
   },
+  {
+    title: 'Avaliações fisicas',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Registrar avaliação',
+        link: '/pages/evaluation/register',
+      },
+    ]
+  },
 ];

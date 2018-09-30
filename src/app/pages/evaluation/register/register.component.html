@@ -1,0 +1,77 @@
+<form #f="ngForm" (ngSubmit)="OnSubmit(f)">
+  <div class="form-group">
+    <label for="aluno">Aluno: </label>
+    <select name="aluno" class="form-control" aria-placeholder="Aluno" [(ngModel)]="evaluation.aluno">
+      <option value="3">Aluno 1</option>
+    </select>
+  </div>
+  <div class="form-group">
+      <label for="peso">Peso: </label>
+      <input class="form-control" placeholder="Peso" name="peso" [(ngModel)]="evaluation.peso">
+  </div>
+  <div class="form-group">
+      <label for="altura">Altura: </label>
+      <input class="form-control" placeholder="Altura" name="altura" [(ngModel)]="evaluation.altura">
+  </div>
+  <div class="form-group">
+      <label for="antebracoLeft">Antebraço Esquerdo: </label>
+      <input class="form-control" placeholder="Antebraço esquerdo" name="antebracoLeft" [(ngModel)]="evaluation.antebracoLeft">
+  </div>
+  <div class="form-group">
+      <label for="antebracoRight">Antebraço Direito: </label>
+      <input class="form-control" placeholder="Antebraço direito" name="antebracoRight" [(ngModel)]="evaluation.antebracoRight">
+  </div>
+  <div class="form-group">
+      <label for="bicepsRight">Bíceps Direito: </label>
+      <input class="form-control" placeholder="Bíceps direito" name="bicepsRight" [(ngModel)]="evaluation.bicepsRight">
+  </div>
+  <div class="form-group">
+      <label for="bicepsLeft">Bíceps Esquerdo: </label>
+      <input class="form-control" placeholder="Bíceps Esquerdo" name="bicepsLeft" [(ngModel)]="evaluation.bicepsLeft">
+  </div>
+  <div class="form-group">
+      <label for="coxaRight">Coxa Direita: </label>
+      <input class="form-control" placeholder="Coxa Direita" name="coxaRight" [(ngModel)]="evaluation.coxaRight">
+  </div>
+  <div class="form-group">
+      <label for="coxaLeft">Coxa Esquerda: </label>
+      <input class="form-control" placeholder="Coxa Esquerda" name="coxaLeft" [(ngModel)]="evaluation.coxaLeft">
+  </div>
+  <div class="form-group">
+      <label for="panturrilhaRight">Panturrilha Direita: </label>
+      <input class="form-control" placeholder="Panturrilha Direita" name="panturrilhaRight" [(ngModel)]="evaluation.panturrilhaRight">
+  </div>
+  <div class="form-group">
+      <label for="panturrilhaLeft">Panturrilha Esquerda: </label>
+      <input class="form-control" placeholder="Panturrilha Esquerda" name="panturrilhaLeft" [(ngModel)]="evaluation.panturrilhaLeft">
+  </div>
+  <div class="form-group">
+      <label for="costas">Costas: </label>
+      <input class="form-control" placeholder="Costas" name="costas" [(ngModel)]="evaluation.costas">
+  </div>
+  <div class="form-group">
+      <label for="quadril">Quadril: </label>
+      <input class="form-control" placeholder="Quadril" name="quadril" [(ngModel)]="evaluation.quadril">
+  </div>
+  <div class="form-group">
+      <label for="gluteos">Glúteos: </label>
+      <input class="form-control" placeholder="Glúteos" name="gluteos" [(ngModel)]="evaluation.gluteos">
+  </div>
+  <div class="form-group">
+      <label for="costas">Quadril: </label>
+      <input class="form-control" placeholder="Costas" name="costas" [(ngModel)]="evaluation.costas">
+  </div>
+  <div class="form-group">
+      <label for="abdomen">Abdômen: </label>
+      <input class="form-control" placeholder="Abdômen" name="abdomen" [(ngModel)]="evaluation.abdomen">
+  </div>
+  <div class="form-group">
+      <label for="flexibilidade">Flexibilidade: </label>
+      <input class="form-control" placeholder="Flexibilidade" name="flexibilidade" [(ngModel)]="evaluation.flexibilidade">
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
