@@ -22,6 +22,10 @@
   "include": [
     "../src/*.ts",
     "../src/**/*.ts",
-    "../node_modules/@nebular/**/*.ts"
+    "../node_modules/@nebular/**/*.ts",
+    "../node_modules/ngx-uploader/src/classes/*.ts",
+    "../node_modules/ngx-uploader/src/directives/*.ts",
+    "../node_modules/ngx-uploader/src/services/*.ts",
+    "../node_modules/ngx-uploader/src/module/*.ts"
   ]
 }
