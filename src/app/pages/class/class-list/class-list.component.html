@@ -1,3 +1,44 @@
-<p>
-  class-list works!
-</p>
+<div class="container">
+  <nb-card>
+    <nb-card-header>
+      <div class="row">
+        <div class="col-md-6">
+          <h4> Consulta de aula </h4>
+        </div>
+        <div class="col-md-6 text-right">
+          <button class="btn btn-success" (click)="goToUserRegister()">Nova Aula</button>
+        </div>
+      </div>
+    </nb-card-header>
+    <nb-card-body class="form-group">
+      <div>
+        Filtro de data
+        <br>
+        <input type="date" class="form-control form-control-sm" />
+      </div>
+      <br>
+      <div>
+        <div class="row">
+          <div class="col-md-12">
+            <ng2-smart-table [settings]="settings" (delete)="delete($event)" (edit)="goToContentRegister($event)"
+              [source]="source">
+            </ng2-smart-table>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+
+  <nb-card>
+    <nb-card-header>Proximas aulas do Dia</nb-card-header>
+    <nb-card-body>
+      <div class="row">
+        <div class="col-md-12">
+          <ng2-smart-table [settings]="settings" (delete)="delete($event)" (edit)="goToContentRegister($event)"
+            [source]="source">
+          </ng2-smart-table>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

@@ -1,3 +1,75 @@
-<p>
-  class-register works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h5>Cadastro de Aula</h5>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Título</label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Tipo</label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Duração</label>
+        <input type="number" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Data de Acontencimento</label>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <nb-checkbox status="success" class="col-sm-4">Fechada ?</nb-checkbox>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Alunos Participantes</label>
+
+        <div class="row">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Aluno</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data Inscrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <label>1</label>
+                </td>
+                <td>
+                  <label>Caio</label>
+                </td>
+                <td>
+                  <label>434.323.343-12</label>
+                </td>
+                <td>
+                  <label>29/05/1996</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 text-right">
+      <button class="btn btn-danger">Cancelar</button> &nbsp;
+      <button class="btn btn-success">Salvar</button>
+      <!-- <button class="btn btn-success" *ngIf="id">Atualizar</button> -->
+    </div>
+  </div>
+</div>
