@@ -64,6 +64,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Registrar avaliação',
         link: '/pages/evaluation/register',
       },
+      {
+        title: 'Visualizar avaliações',
+        link: '/pages/evaluation/evaluation-list',
+      },
     ]
   },
 ];

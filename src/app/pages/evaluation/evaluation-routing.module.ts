@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 //Componente principal
 import { RegisterComponent } from './register/register.component';
+import { EvaluationListComponent } from './evaluation-list/evaluation-list.component';
 
 
 //Componente secundarios dentro do template
@@ -12,6 +13,14 @@ const routes: Routes = [{
     children: [{
         path: 'register',
         component: RegisterComponent,
+    }],
+},
+{
+    path: '',
+    component: EvaluationListComponent,
+    children: [{
+        path: 'evaluation-list',
+        component: EvaluationListComponent,
     }],
 }];
 
@@ -29,4 +38,5 @@ export class EvaluationRoutingModule {
 
 export const routedComponents = [
     RegisterComponent,
+    EvaluationListComponent
 ];
