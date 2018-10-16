@@ -8,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class EvaluationListComponent implements OnInit {
 
   settings = {
+    mode: 'external',
+    noDataMessage: 'Nenhum usuário cadastrado',
     hideSubHeader: true,
-    actions: {
-      columnTitle: "",
-      add: "false",
-      edit: "false",
-      delete: "false",
-      position: "right"
+    edit: {
+      editButtonContent: '<i class="nb-edit"></i>',
+      saveButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
+    },
+    delete: {
+      deleteButtonContent: '<i class="nb-trash"></i>',
+      confirmDelete: true,
     },
     columns: {
       dataAvaliacao: {
