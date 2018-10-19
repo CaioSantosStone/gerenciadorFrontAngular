@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LoginComponent } from './login.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,9 @@ const routes: Routes = [
   children: [{
     path: 'sign-in',
     component: SignInComponent,
+  }, {
+    path: 'reset-password',
+    component: ResetPasswordComponent,
   }],
 }];
 

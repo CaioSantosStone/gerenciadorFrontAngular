@@ -60,4 +60,8 @@ export class SignInComponent {
       this.toastr.error('Error', 'Não foi possível realizar o login');
     }
   }
+
+  resetPassword() {
+    this.router.navigateByUrl('/login/reset-password');
+  }
 }

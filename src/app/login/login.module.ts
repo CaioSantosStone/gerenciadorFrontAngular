@@ -6,6 +6,7 @@ import { LoginComponent } from './login.component';
 import { ThemeModule } from '../@theme/theme.module';
 import { SignInModule } from './sign-in/sign-in.module';
 import { LoginRoutingModule } from './login-routing.module';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -19,6 +20,7 @@ import { LoginRoutingModule } from './login-routing.module';
   ],
   declarations: [
     LoginComponent,
+    ResetPasswordComponent,
   ],
 })
 export class LoginModule { }
