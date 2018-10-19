@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
+  confirmPassword: Boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  reset() {
+    this.confirmPassword = !this.confirmPassword;
+  }
 }
