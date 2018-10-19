@@ -34,20 +34,24 @@
       </div>
     </div>
     <div class="col-6">
+        <label for="">Selecione o tipo de usuário</label>
+        <select name="" id="" [(ngModel)]="user.profileType" class="form-control">
+          <option [value]="undefined" selected disabled>Tipo de usuário</option>
+          <option value="ADMIN">Administrador</option>
+          <option value="STUDENT">Aluno</option>
+          <option value="TEACHER">Professor</option>
+        </select>
+      </div>
+    <div class="col-6">
       <div class="form-group">
-        <label for="">Ativo</label>
-        <input stlye="width: fit-content;" type="checkbox" [(ngModel)]="user.enable" class="form-control">
+        <nb-checkbox status="success" class="col-sm-4">Ativo ?</nb-checkbox>
       </div>
     </div>
     <div class="col-6">
-      <label for="">Selecione o tipo de usuário</label>
-      <select name="" id="" [(ngModel)]="user.profileType" class="form-control">
-        <option [value]="undefined" selected disabled>Tipo de usuário</option>
-        <option value="ADMIN">Administrador</option>
-        <option value="STUDENT">Aluno</option>
-        <option value="TEACHER">Professor</option>
-      </select>
-    </div>
+        <div class="form-group">
+          <nb-checkbox status="success" class="col-sm-4">Bloqueiar Aula ?</nb-checkbox>
+        </div>
+      </div>
     <div class="col-12 text-right">
       <button class="btn btn-danger" (click)="goToList()">Cancelar</button> &nbsp;
       <button class="btn btn-success" (click)="save()" *ngIf="!id">Salvar</button>
