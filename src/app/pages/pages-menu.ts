@@ -2,12 +2,6 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Dashboard',
-    icon: 'nb-home',
-    link: '/pages/dashboard',
-    home: true,
-  },
-  {
     title: 'Aulas',
     icon: 'nb-compose',
     children: [
@@ -21,7 +15,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ]
   },
   {
-    title: 'Chat',
+    title: 'Bate Papo',
     icon: 'nb-email',
     children: [
       {

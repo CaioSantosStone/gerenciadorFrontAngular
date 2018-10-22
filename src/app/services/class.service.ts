@@ -22,7 +22,8 @@ export class ClassService {
         cancelButtonContent: '<i class="nb-close"></i>',
       },
       actions : {
-        delete: false
+        delete: false,
+        columnTitle: 'Ações'
       },
       columns: {
         _id: {

@@ -49,6 +49,9 @@ export class UserService {
         deleteButtonContent: '<i class="nb-trash"></i>',
         confirmDelete: true,
       },
+      actions: {
+        columnTitle: 'Ações'
+      },
       columns: {
         _id: {
           title: 'Id',
