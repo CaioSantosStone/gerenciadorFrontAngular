@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
     if (message) {
       this.toastr.success(message);
     }
-    this.router.navigateByUrl('/pages/content/manager');
+    this.router.navigateByUrl('/pages/evaluation/manager');
   }
 
 }

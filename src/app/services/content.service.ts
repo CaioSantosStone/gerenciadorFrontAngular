@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClientService } from './http-client.service';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,10 @@ export class ContentService {
 
   url: any = `${environment.API_URL}/content`;
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private authenticationService: AuthenticationService, private httpClientService: HttpClientService) { }
 
   create(content): any {
+    const user = this.authenticationService.getLogged();
     return this.httpClientService.post(this.url, content);
   }
 

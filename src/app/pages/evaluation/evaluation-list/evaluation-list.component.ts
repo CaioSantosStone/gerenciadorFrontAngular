@@ -10,7 +10,7 @@ import { EvaluationService } from '../../../services/evaluation.service';
 export class EvaluationListComponent implements OnInit {
 
   users: any = [];
-  userSelected: any = {};
+  userSelected: any;
   viewEvaluation: any = false;
 
   settings = {
@@ -27,20 +27,20 @@ export class EvaluationListComponent implements OnInit {
       confirmDelete: true,
     },
     columns: {
-      dataAvaliacao: {
+      createdAt: {
         title: 'Data da avaliação',
         type: 'string',
       },
-      avaliador: {
+      appraiser: {
         title: 'Avaliador',
         type: 'string',
       },
-      peso: {
+      weight: {
         title: 'Peso',
         type: 'string',
       },
-      imc: {
-        title: 'IMC',
+      height: {
+        title: 'Altura',
         type: 'string',
       },
     },

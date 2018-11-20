@@ -3,7 +3,7 @@
 </div>
 <div class="form-group">
     <label for="aluno">Aluno: </label>
-    <ng-select name="user" notFoundText="Nenhum aluno encontrado" [items]="users" placeholder="Selecione o aluno"
+    <ng-select name="user" bindValue="_id" notFoundText="Nenhum aluno encontrado" [items]="users" placeholder="Selecione o aluno"
         bindLabel="fullName" [(ngModel)]="evaluation.student">
     </ng-select>
 </div>
