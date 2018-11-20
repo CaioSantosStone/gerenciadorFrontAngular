@@ -19,4 +19,8 @@ export class EvaluationService {
     return this.httpClientService.get(`${this.url}/${user}`);
   }
 
+  update(evaluation): any {
+    return this.httpClientService.put(`${this.url}/${evaluation._id}`, evaluation);
+  }
+
 }
