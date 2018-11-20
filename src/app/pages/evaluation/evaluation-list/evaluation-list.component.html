@@ -1,26 +1,26 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  
+
   <form action="" method="POST" role="form">
     <legend>Avaliações fisicas</legend>
 
     <div class="form-group">
-      <ng-select name="aluno" [items]="aluno" [(ngModel)]="alunoSelected" [loading]="alunoLoading" (change)="onOpen()">
+      <ng-select name="user" notFoundText="Nenhum aluno encontrado" [items]="users" placeholder="Selecione o aluno" bindLabel="fullName" [(ngModel)]="userSelected"
+        (change)="onOpen($event)">
       </ng-select>
     </div>
 
-   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngIf="visualizarDataAvaliacao">
-    <nb-card>
-      <nb-card-header>
-        Avaliações de {{alunoSelected}}
-      </nb-card-header>    
-      <nb-card-body>
-        <ng2-smart-table [settings]="settings" [source]="source">
-        </ng2-smart-table>
-      </nb-card-body>
-    </nb-card>
-   </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" *ngIf="viewEvaluation">
+      <nb-card>
+        <nb-card-header>
+          Avaliações de {{userSelected?.fullName}}
+        </nb-card-header>
+        <nb-card-body>
+          <ng2-smart-table [settings]="settings" [source]="evaluations">
+          </ng2-smart-table>
+        </nb-card-body>
+      </nb-card>
+    </div>
   </form>
-  
-  
-</div>
 
+
+</div>

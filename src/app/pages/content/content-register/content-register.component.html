@@ -5,6 +5,15 @@
     </div>
     <div class="col-12">
       <div class="form-group">
+        <label for="">Usuário</label>
+        <select name="" id="" class="form-control" [(ngModel)]="content.student">
+          <option [value]="undefined">Todos</option>
+          <option [value]="user._id" *ngFor="let user of users">{{user.fullName}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
         <label for="">Título</label>
         <input type="text" [(ngModel)]="content.title" class="form-control">
       </div>
@@ -17,6 +26,12 @@
     </div>
     <div class="col-12">
       <div class="form-group">
+        <label for="">Imagem principal</label>
+        <input type="text" [(ngModel)]="content.mainImg" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
         <label for="">Conteúdo</label>
         <textarea name="" id="" cols="30" rows="4" [(ngModel)]="content.description" class="form-control"></textarea>
       </div>
@@ -24,20 +39,22 @@
     <div class="col-12">
       <div class="form-group">
         <label for="">Url video do youtube</label>
-        <input type="text" [(ngModel)]="content.subtitle" class="form-control">
+        <input type="text" [(ngModel)]="content.movie" class="form-control">
       </div>
     </div>
     <div class="col-12">
       <div class="form-group">
-        <button  class="btn btn-primary" (click)="newImg()">
+        <button class="btn btn-primary" (click)="newImg()">
           <i class="fa fa-plus" aria-hidden="true"></i> Adicionar imagens
         </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6" *ngFor='let img of arrayImg'>
+    <div class="row" *ngIf="content.img">
+      <!-- <div class="col-6" *ngFor='let img of arrayImg'> -->
+      <div class="col-6">
         <div class="form-group">
-          <ba-picture-uploader [type]="imgLogo" [guid]="234234324" [defaultPicture]="defaultPicture" [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
+          <ba-picture-uploader [type]="content.img" [guid]="234234324" [defaultPicture]="defaultPicture"
+            [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
         </div>
       </div>
     </div>

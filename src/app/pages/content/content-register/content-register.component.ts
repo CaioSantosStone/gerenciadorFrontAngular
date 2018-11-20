@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ContentService } from '../../../services/content.service';
 import { NgUploaderOptions } from 'ngx-uploader';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'ngx-content-register',
@@ -11,6 +12,7 @@ import { NgUploaderOptions } from 'ngx-uploader';
 })
 export class ContentRegisterComponent implements OnInit {
 
+  users: any = [];
   content: any = {};
   id: any = ''
   constructor(
@@ -18,6 +20,7 @@ export class ContentRegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private contentService: ContentService,
     private toastr: ToastrService,
+    private userService: UserService
   ) { }
 
   arrayImg = []
@@ -25,6 +28,7 @@ export class ContentRegisterComponent implements OnInit {
   defaultPicture = "https://blog.adias.com.br/wp-content/uploads/2017/01/59382-academia-com-arcondicionado-afinal-pode-ou-nao-pode.jpg"
 
   ngOnInit() {
+    this.loadUsers();
     this.route.queryParams
       .subscribe(params => {
         if (params.id) {
@@ -37,6 +41,14 @@ export class ContentRegisterComponent implements OnInit {
   public uploaderOptions: NgUploaderOptions = {
     url: '',
   };
+
+
+  async loadUsers() {
+    try {
+      this.users = (await this.userService.get({ profileType: 'STUDENT' })).users;
+    } catch (err) {
+    }
+  }
 
   async loadContent() {
     try {
@@ -70,7 +82,7 @@ export class ContentRegisterComponent implements OnInit {
     this.router.navigateByUrl('/pages/content/manager');
   }
 
-  newImg(){
+  newImg() {
     this.arrayImg.push(1)
   }
 

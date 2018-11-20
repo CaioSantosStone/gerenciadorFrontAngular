@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'ngx-register',
@@ -8,17 +9,28 @@ import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/fo
 })
 export class RegisterComponent implements OnInit {
 
+  users: any = [];
   evaluation: any = {
     aluno: 'Teste',
     peso: 123
   }
 
-  OnSubmit(form){
+  constructor(private userService: UserService) { }
+
+  onSubmit(form) {
     console.log(form.value);
     console.log(this.evaluation);
   }
-  constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.loadUsers();
+  }
+
+  async loadUsers() {
+    try {
+      this.users = (await this.userService.get({ profileType: 'STUDENT' })).users;
+    } catch (err) {
+    }
+  }
 
 }

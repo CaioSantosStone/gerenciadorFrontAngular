@@ -33,6 +33,7 @@ import 'rxjs/add/operator/map';
 import { LoginService } from './services/login.service';
 import { StorageService } from './services/storage.service';
 import { UserService } from './services/user.service';
+import { EvaluationService } from './services/evaluation.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -64,6 +65,7 @@ import { UserService } from './services/user.service';
     LoginService,
     StorageService,
     UserService,
+    EvaluationService
   ],
 })
 export class AppModule {

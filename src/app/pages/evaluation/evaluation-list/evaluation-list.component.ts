@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../../services/user.service';
+import { EvaluationService } from '../../../services/evaluation.service';
 
 @Component({
   selector: 'ngx-evaluation-list',
   templateUrl: './evaluation-list.component.html',
-  styleUrls: ['./evaluation-list.component.scss', ]
+  styleUrls: ['./evaluation-list.component.scss',]
 })
 export class EvaluationListComponent implements OnInit {
 
+  users: any = [];
+  userSelected: any = {};
+  viewEvaluation: any = false;
+
   settings = {
     mode: 'external',
-    noDataMessage: 'Nenhum usuário cadastrado',
+    noDataMessage: 'Nenhuma avaliação encontrada',
     hideSubHeader: true,
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
@@ -40,31 +46,37 @@ export class EvaluationListComponent implements OnInit {
     },
   };
 
-  public source;
+  evaluations = [];
 
-  constructor() { 
+  constructor(
+    private userService: UserService,
+    private evaluationService: EvaluationService) {
   }
 
-  public aluno;
-
-  public visualizarDataAvaliacao;
 
   ngOnInit() {
-    this.aluno = [ "Jinki winki",  "Jipsi", "Lala", "Po"];
+    this.loadUsers();
   }
 
-  onOpen(aluno){
-    this.carregarDados();
+  async loadUsers() {
+    try {
+      this.users = (await this.userService.get({ profileType: 'STUDENT' })).users;
+    } catch (err) {
+    }
   }
-  
-  async carregarDados(){
-    this.visualizarDataAvaliacao = true;
-    this.source = [{
-      "dataAvaliacao": "2018-10-02",
-      "avaliador": "Solzinho",
-      "peso": "192kg",
-      "imc": "199.9"
-    }];
+
+  onOpen(user) {
+    this.userSelected = user;
+    this.loadEvaluationByUser();
+  }
+
+  async loadEvaluationByUser() {
+    try {
+      this.viewEvaluation = true;
+      this.evaluations = (await this.evaluationService.get(this.userSelected._id))['evaluations'];
+    } catch (err) {
+
+    }
   }
 
 }
