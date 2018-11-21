@@ -6,33 +6,60 @@
     <div class="col-12">
       <div class="form-group">
         <label for="">Título</label>
-        <input type="text" class="form-control">
+        <input type="text" [(ngModel)]="classSelected.title" class="form-control">
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Aluno</label>
+        <select name="" id="" class="form-control" [(ngModel)]="classSelected.student">
+          <option [value]="undefined">Todos</option>
+          <option [value]="student._id" *ngFor="let student of students">{{student.fullName}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-group">
+        <label for="">Professor</label>
+        <select name="" id="" class="form-control" [(ngModel)]="classSelected.teacher">
+          <option [value]="undefined">Selecione o professor</option>
+          <option [value]="teacher._id" *ngFor="let teacher of teachers">{{teacher.fullName}}</option>
+        </select>
       </div>
     </div>
     <div class="col-12">
       <div class="form-group">
         <label for="">Tipo</label>
-        <input type="text" class="form-control">
+        <input type="text" [(ngModel)]="classSelected.type" class="form-control">
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="classSelected.date" ngbDatepicker
+            #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">Calendário</button>
+          </div>
+        </div>
+        <!-- <input type="text" ngbDatepicker class="form-control" [(ngModel)]="classSelected.date" /> -->
       </div>
     </div>
     <div class="col-12">
       <div class="form-group">
-        <label for="">Duração</label>
-        <input type="number" class="form-control">
+        <label for="">Horário</label>
+        <select name="" id="" [(ngModel)]="classSelected.hour" class="form-control">
+          <option value="undefined">Selecione o horário</option>
+          <option [value]="hour" *ngFor="let hour of hours">{{hour}}</option>
+        </select>
       </div>
     </div>
     <div class="col-12">
       <div class="form-group">
-        <label for="">Data</label>
-        <input type="text" class="form-control">
+        <nb-checkbox status="success" [(ngModel)]="classSelected.closed" class="col-sm-4">Fechada</nb-checkbox>
       </div>
     </div>
-    <div class="col-12">
-      <div class="form-group">
-        <nb-checkbox status="success" class="col-sm-4">Fechada ?</nb-checkbox>
-      </div>
-    </div>
-    <div class="col-12">
+    <div class="col-12" *ngIf="classSelected?._id">
       <div class="form-group">
         <label for="">Alunos Participantes</label>
 
@@ -68,8 +95,8 @@
     </div>
     <div class="col-12 text-right">
       <button class="btn btn-danger">Cancelar</button> &nbsp;
-      <button class="btn btn-success">Salvar</button>
-      <!-- <button class="btn btn-success" *ngIf="id">Atualizar</button> -->
+      <button class="btn btn-success" (click)="save()" *ngIf="!id">Salvar</button>
+      <button class="btn btn-success" (click)="update()" *ngIf="id">Atualizar</button>
     </div>
   </div>
 </div>

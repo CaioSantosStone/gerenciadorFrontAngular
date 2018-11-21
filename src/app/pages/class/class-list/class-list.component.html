@@ -6,9 +6,9 @@
           <h4> Consulta de aula </h4>
         </div>
         <div class="col-md-6 text-right">
-          <button class="btn btn-success" (click)="goToUserRegister()">Nova Aula</button>
+          <button class="btn btn-success" (click)="goToClassRoomRegister()">Nova Aula</button>
         </div>
-      </div>
+      </div> 
     </nb-card-header>
     <nb-card-body class="form-group">
       <div>
@@ -20,7 +20,7 @@
       <div>
         <div class="row">
           <div class="col-md-12">
-            <ng2-smart-table [settings]="settings" (delete)="delete($event)" (edit)="goToContentRegister($event)"
+            <ng2-smart-table [settings]="settings" (delete)="delete($event)" (edit)="goToClassRoomRegister($event)"
               [source]="source">
             </ng2-smart-table>
           </div>
