@@ -13,7 +13,7 @@
       <div class="form-group">
         <label for="">Aluno</label>
         <select name="" id="" class="form-control" [(ngModel)]="classSelected.student">
-          <option [value]="undefined">Todos</option>
+          <option selected value="">Todos</option>
           <option [value]="student._id" *ngFor="let student of students">{{student.fullName}}</option>
         </select>
       </div>
@@ -73,25 +73,21 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Aluno</th>
                 <th scope="col">CPF</th>
                 <th scope="col">Data Inscrição</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let student of classSelected?.confirmed">
                 <td>
-                  <label>1</label>
+                  <label>{{student?.fullName}}</label>
                 </td>
                 <td>
-                  <label>Caio</label>
+                  <label>{{student?.cpf}}</label>
                 </td>
                 <td>
-                  <label>434.323.343-12</label>
-                </td>
-                <td>
-                  <label>29/05/1996</label>
+                  <label>{{ student.birth | date: 'dd/MM/yyyy'}}</label>
                 </td>
               </tr>
             </tbody>

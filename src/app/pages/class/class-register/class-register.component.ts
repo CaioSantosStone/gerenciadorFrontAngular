@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ClassRegisterComponent implements OnInit {
 
-  classSelected: any = {};
+  classSelected: any = { student: '' };
   students: any = [];
   teachers: any = [];
   hours: any = [
@@ -64,6 +64,9 @@ export class ClassRegisterComponent implements OnInit {
   async loadClass() {
     try {
       this.classSelected = (await this.classService.getById(this.id)).classRoom;
+      if (!this.classSelected.student) {
+        this.classSelected.student = '';
+      }
     } catch (err) {
     }
   }
@@ -79,18 +82,30 @@ export class ClassRegisterComponent implements OnInit {
       if (!this.classSelected.hour) {
         return this.toastr.error('Horário inválido!');
       }
+      if (!this.classSelected.type) {
+        return this.toastr.error('Tipo inválido!');
+      }
       if (!this.classSelected.date) {
         return this.toastr.error('Data inválida!');
       }
+      if (!this.classSelected.student) {
+        delete this.classSelected.student;
+      }
       await this.classService.create(this.classSelected);
       this.goToList('Aula criada com sucesso');
-    } catch (err) {
+    } catch (errReponse) {
+      if (errReponse && errReponse.error && errReponse.error.error) {
+        return this.toastr.error(errReponse.error.error);
+      }
       this.toastr.error('Não foi possível cadastrar a aula');
     }
   }
 
   async update() {
     try {
+      if (!this.classSelected.student) {
+        delete this.classSelected.student;
+      }
       await this.classService.update(this.classSelected);
       this.goToList('Aula atualizado com sucesso');
     } catch (err) {
