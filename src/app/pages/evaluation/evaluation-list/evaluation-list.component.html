@@ -15,7 +15,7 @@
           Avaliações de {{userSelected?.fullName}}
         </nb-card-header>
         <nb-card-body>
-          <ng2-smart-table [settings]="settings" [source]="evaluations">
+          <ng2-smart-table [settings]="settings" [source]="evaluations" (delete)="delete($event)" (edit)="goToContentRegister($event)">
           </ng2-smart-table>
         </nb-card-body>
       </nb-card>

@@ -84,4 +84,5 @@
     <input class="form-control" placeholder="Flexibilidade" name="flexibilidade" [(ngModel)]="evaluation.flexibility">
 </div>
 
-<button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+<button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!id">Salvar</button>
+<button type="submit" class="btn btn-primary" (click)="update()" *ngIf="id">Atualizar</button>

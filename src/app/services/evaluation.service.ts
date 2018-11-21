@@ -22,8 +22,16 @@ export class EvaluationService {
     return this.httpClientService.get(`${this.url}/${user}`);
   }
 
+  getById(id): any {
+    const url = `${this.url}/detail/${id}`;
+    return this.httpClientService.get(url);
+  }
+
   update(evaluation): any {
     return this.httpClientService.put(`${this.url}/${evaluation._id}`, evaluation);
   }
 
+  delete(contentId): any {
+    return this.httpClientService.delete(`${this.url}/${contentId}`);
+  }
 }

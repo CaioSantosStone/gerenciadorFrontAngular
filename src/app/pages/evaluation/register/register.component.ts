@@ -3,7 +3,7 @@ import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/fo
 import { UserService } from '../../../services/user.service';
 import { EvaluationService } from '../../../services/evaluation.service';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ngx-register',
@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
+  id: any = '';
   users: any = [];
   evaluation: any = {
     aluno: 'Teste',
@@ -31,9 +32,10 @@ export class RegisterComponent implements OnInit {
     { key: 'Outubro', value: '10' },
     { key: 'Novembro', value: '11' },
     { key: 'Dezembro', value: '12' },
-  ]
+  ];
 
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
     private userService: UserService,
@@ -46,7 +48,21 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.queryParams
+      .subscribe(params => {
+        if (params.id) {
+          this.id = params.id
+          this.loadEvaluation();
+        };
+      });
     this.loadUsers();
+  }
+
+  async loadEvaluation() {
+    try {
+      this.evaluation = (await this.evaluationService.getById(this.id)).evaluation;
+    } catch (err) {
+    }
   }
 
   async loadUsers() {
@@ -78,7 +94,7 @@ export class RegisterComponent implements OnInit {
     if (message) {
       this.toastr.success(message);
     }
-    this.router.navigateByUrl('/pages/evaluation/manager');
+    this.router.navigateByUrl('/pages/evaluation/evaluation-list');
   }
 
 }
