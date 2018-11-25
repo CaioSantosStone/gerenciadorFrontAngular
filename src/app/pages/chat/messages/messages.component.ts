@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../../../services/chat.service';
 import { AuthenticationService } from '../../../services/authentication.service';
-import { isUndefined } from 'util';
-import { empty } from 'rxjs';
 @Component({
     selector: 'ngx-messages',
     templateUrl: './messages.component.html',
