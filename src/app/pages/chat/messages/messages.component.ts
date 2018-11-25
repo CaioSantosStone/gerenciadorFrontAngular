@@ -22,7 +22,7 @@ export class MessagesComponent implements OnInit {
     fromMessages: Array<number>;
     sended: Array<Text>;
     recieved: Array<Text>;
-    messages: Object;
+    messages: any = [];
 
     constructor(
         private chatService: ChatService,
@@ -81,7 +81,6 @@ export class MessagesComponent implements OnInit {
     }
 
     async sendMessage() {
-
         let fromId = (await this.authenticationService.getLogged())['_id'];
         let chat = await this.chatService.getChat(this.activeId, fromId);
         let contents = chat['contents'];
@@ -90,19 +89,30 @@ export class MessagesComponent implements OnInit {
             let chat = await this.chatService.getChat(this.activeId, fromId);
             let contents = await chat['contents'];
         }
-
         contents.forEach(chatContent => {
             var id = chatContent['_id'];
             this.chatService.sendMessage(id, this.message);
         });
-
+        this.messages.push({ message: this.message, outgoing_msg: true, createdAt: new Date() });
+        this.message = '';
     }
 
     async getMessages() {
-
         this.toMessages = (await this.chatService.getMessagesByChat(this.chatToId))['contents'];
         this.fromMessages = (await this.chatService.getMessagesByChat(this.chatFromId))['contents'];
-        this.messages = { sended: this.toMessages.sort(), recieved: this.fromMessages.sort() };
+
+        this.toMessages = this.toMessages.map((currentMessage: any) => {
+            currentMessage.outgoing_msg = true;
+            currentMessage.createdAt = new Date(currentMessage.createdAt);
+            return currentMessage;
+        });
+        this.fromMessages = this.fromMessages.map((currentMessage: any) => {
+            currentMessage.incoming_msg = true;
+            currentMessage.createdAt = new Date(currentMessage.createdAt);
+            return currentMessage;
+        });
+        this.messages = [...this.fromMessages, ...this.toMessages].sort((a: any, b: any) => a.createdAt - b.createdAt);
+        setTimeout(() => document.getElementById(`${this.messages.length - 1}-message`).scrollIntoView(), 1000);
     }
 
 }
