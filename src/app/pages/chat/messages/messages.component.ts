@@ -81,20 +81,26 @@ export class MessagesComponent implements OnInit {
     }
 
     async sendMessage() {
-        let fromId = (await this.authenticationService.getLogged())['_id'];
-        let chat = await this.chatService.getChat(this.activeId, fromId);
-        let contents = chat['contents'];
-        if (contents.length == 0) {
-            await this.chatService.createChat(this.activeId, fromId);
+        if (!this.message) { return; }
+        try {
+            let fromId = (await this.authenticationService.getLogged())['_id'];
             let chat = await this.chatService.getChat(this.activeId, fromId);
-            let contents = await chat['contents'];
+            let contents = chat['contents'];
+            if (contents.length == 0) {
+                await this.chatService.createChat(this.activeId, fromId);
+                let chat = await this.chatService.getChat(this.activeId, fromId);
+                let contents = await chat['contents'];
+            }
+            contents.forEach(chatContent => {
+                var id = chatContent['_id'];
+                this.chatService.sendMessage(id, this.message);
+            });
+            this.messages.push({ message: this.message, outgoing_msg: true, createdAt: new Date() });
+            this.message = '';
+            this.scrollToLastMessage();
+        } catch (err) {
+
         }
-        contents.forEach(chatContent => {
-            var id = chatContent['_id'];
-            this.chatService.sendMessage(id, this.message);
-        });
-        this.messages.push({ message: this.message, outgoing_msg: true, createdAt: new Date() });
-        this.message = '';
     }
 
     async getMessages() {
@@ -112,6 +118,10 @@ export class MessagesComponent implements OnInit {
             return currentMessage;
         });
         this.messages = [...this.fromMessages, ...this.toMessages].sort((a: any, b: any) => a.createdAt - b.createdAt);
+        this.scrollToLastMessage();
+    }
+
+    scrollToLastMessage() {
         setTimeout(() => document.getElementById(`${this.messages.length - 1}-message`)
             .scrollIntoView({ behavior: 'smooth', block: 'center' }), 500);
     }
