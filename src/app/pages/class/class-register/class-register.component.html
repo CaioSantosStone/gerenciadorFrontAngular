@@ -96,7 +96,7 @@
       </div>
     </div>
     <div class="col-12 text-right">
-      <button class="btn btn-danger">Cancelar</button> &nbsp;
+      <button class="btn btn-danger" (click)="goToList()">Cancelar</button> &nbsp;
       <button class="btn btn-success" (click)="save()" *ngIf="!id">Salvar</button>
       <button class="btn btn-success" (click)="update()" *ngIf="id">Atualizar</button>
     </div>

@@ -34,7 +34,7 @@ import {
   TinyMCEComponent,
   ThemeSwitcherListComponent,
 } from './components';
-import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe } from './pipes';
+import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe, FilterListPipe } from './pipes';
 import {
   OneColumnLayoutComponent,
   SampleLayoutComponent,
@@ -92,6 +92,7 @@ const PIPES = [
   PluralPipe,
   RoundPipe,
   TimingPipe,
+  FilterListPipe
 ];
 
 const NB_THEME_PROVIDERS = [
