@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { LoginService } from '../../services/login.service';
 import { StorageService } from '../../services/storage.service';
 import { AuthenticationService } from '../../services/authentication.service';
 @Component({
@@ -40,7 +39,7 @@ export class SignInComponent {
     this.password = this.form.controls['password'];
   }
 
-  public async onSubmit(values: Object) {
+  public async onSubmit() {
     try {
       this.submitted = true;
       if (this.form.invalid) {
@@ -57,7 +56,7 @@ export class SignInComponent {
       this.router.navigateByUrl('/pages/dashboard');
     } catch (err) {
       console.log(err);
-      this.toastr.error('Error', 'Não foi possível realizar o login');
+      this.toastr.error('Não foi possível realizar o login', 'Erros');
     }
   }
 
