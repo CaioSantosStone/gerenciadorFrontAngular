@@ -35,6 +35,7 @@ import { StorageService } from './services/storage.service';
 import { UserService } from './services/user.service';
 import { EvaluationService } from './services/evaluation.service';
 import { ClassService } from './services/class.service';
+import { ChatService } from './services/chat.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -67,7 +68,8 @@ import { ClassService } from './services/class.service';
     StorageService,
     UserService,
     EvaluationService,
-    ClassService
+    ClassService,
+    ChatService
   ],
 })
 export class AppModule {

@@ -24,10 +24,10 @@ const routes: Routes = [
       path: 'content',
       loadChildren: './content/content.module#ContentModule',
     },
-    {
-      path: 'class',
-      loadChildren: './class/class.module#ClassModule',
-    },
+    // {
+    //   path: 'class',
+    //   loadChildren: './class/class.module#ClassModule',
+    // },
     {
       path: 'chat',
       loadChildren: './chat/chat.module#ChatModule',
