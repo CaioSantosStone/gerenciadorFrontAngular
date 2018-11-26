@@ -1,8 +1,8 @@
 import {Component, ViewChild, Input, Output, EventEmitter, ElementRef, Renderer} from '@angular/core';
-
+import * as AWS from 'aws-sdk'
+import { NgUploaderModule } from 'ngx-uploader';
 import { NgUploaderOptions } from 'ngx-uploader';
-
-// import * as AWS from 'aws-sdk'
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'ba-picture-uploader',
@@ -10,20 +10,18 @@ import { NgUploaderOptions } from 'ngx-uploader';
   templateUrl: './picture-uploader.component.html',
 })
 export class BaPictureUploader {
-
-//   s3: AWS.S3 = new AWS.S3({
-//     params: {
-//       Bucket: environment.s3.bucket
-//     }
-//   });
+  s3: AWS.S3 = new AWS.S3({
+    params: {
+      Bucket: environment.s3.bucket
+    }
+  });
 
 
   @Input() defaultPicture:string = '';
   @Input() picture:string = '';
 
-  @Input() canDelete:boolean = true;
-
   @Input() uploaderOptions:NgUploaderOptions = { url: '' };
+  @Input() canDelete:boolean = true;
 
   @Output() onUpload = new EventEmitter<any>();
   @Output() onUploadCompleted = new EventEmitter<any>();
@@ -37,11 +35,7 @@ export class BaPictureUploader {
   public uploadInProgress:boolean;
 
   constructor(private renderer: Renderer,
-  ) {
-
-
-
-  }
+  ) {}
 
   beforeUpload(uploadingFile): void {
     let files = this._fileUpload.nativeElement.files;
@@ -58,40 +52,34 @@ export class BaPictureUploader {
   }
 
   uploadAMAZON(file){
-    // var params = {
-    //   Bucket: environment.s3.bucket,
-    // //  Key: 'logo/1285efa2-98cd-40d2-8812-2c9a3d350632',
-    //   Key: this.type + '/' + this.guid,
-    //   ContentType: file.type,
-    //   Body: file,
-    //   ACL: 'public-read'
+    var params = {
+      Bucket: environment.s3.bucket,
+      Key: this.type + '/' + this.guid,
+      ContentType: file.type,
+      Body: file,
+      ACL: 'public-read'
       
-    // };
-    // var that = this
-    // this.s3
-    //   .upload(params, function(err, data) {
-    //     if (err) {
-    //       console.log('erro')
-    //       console.log(err)
-    //     }
-    //     if (data){
-    //       var entity = {
-    //         alter : that.type,
-    //         pictureURL : data.Location,
-    //         guid : that.guid
-    //       } 
-    //       that.entityService.updateEntityImg(entity)
-    //       .subscribe(
-    //         data => {
-    //           console.log(data)
-    //         },
-    //         error => {
-    //           console.log(error)
-    //       });
-      
-    //     }
+    };
+    var that = this
+    console.log('sdfdsf')
+    this.s3
+      .upload(params, function(err, data) {
+        if (err) {
+          console.log('erro')
+          console.log(err)
+        }
+        if (data){
+          var entity = {
+            alter : that.type,
+            pictureURL : data.Location,
+            guid : that.guid
+          }
+          console.log(data)
+          localStorage.setItem('entity', JSON.stringify(entity));
+
+        }
         
-    //   })
+      })
   }
 
   bringFileSelector():boolean {

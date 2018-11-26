@@ -68,6 +68,7 @@ export class ContentRegisterComponent implements OnInit {
 
   async update() {
     try {
+      this.content.arrayImg = this.arrayImg
       await this.contentService.update(this.content);
       this.goToList('Conteúdo atualizado com sucesso');
     } catch (err) {
@@ -83,7 +84,10 @@ export class ContentRegisterComponent implements OnInit {
   }
 
   newImg() {
-    this.arrayImg.push(1)
+    this.arrayImg.push({
+      id : new Date().toString(),
+    })
+    this.content.img = true
   }
 
 }

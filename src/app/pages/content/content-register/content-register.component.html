@@ -50,10 +50,10 @@
       </div>
     </div>
     <div class="row" *ngIf="content.img">
-      <!-- <div class="col-6" *ngFor='let img of arrayImg'> -->
-      <div class="col-6">
+      <div class="col-6" *ngFor='let img of arrayImg'>
+      <!-- <div class="col-6"> -->
         <div class="form-group">
-          <ba-picture-uploader [type]="content.img" [guid]="234234324" [defaultPicture]="defaultPicture"
+            <ba-picture-uploader [type]="imgCover" [guid]="img.id" [defaultPicture]="defaultCover"
             [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
         </div>
       </div>
