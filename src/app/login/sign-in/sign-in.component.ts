@@ -53,7 +53,7 @@ export class SignInComponent {
       this.storageService.set('user', data.user);
 
       this.toastr.success('Login realizado com sucesso', 'Sucesso');
-      this.router.navigateByUrl('/pages/dashboard');
+      this.router.navigateByUrl('/pages/class/list');
     } catch (err) {
       console.log(err);
       this.toastr.error('Não foi possível realizar o login', 'Erros');
