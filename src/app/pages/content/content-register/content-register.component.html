@@ -38,7 +38,7 @@
     </div>
     <div class="col-12">
       <div class="form-group">
-        <label for="">Url video do youtube</label>
+        <label for="">ID video do youtube</label>
         <input type="text" [(ngModel)]="content.movie" class="form-control">
       </div>
     </div>
@@ -53,7 +53,7 @@
       <div class="col-6" *ngFor='let img of arrayImg'>
       <!-- <div class="col-6"> -->
         <div class="form-group">
-            <ba-picture-uploader [type]="imgCover" [guid]="img.id" [defaultPicture]="defaultCover"
+            <ba-picture-uploader [type]="imgCover" [guid]="img.id" [defaultPicture]="img.url"
             [uploaderOptions]="uploaderOptions"></ba-picture-uploader>
         </div>
       </div>

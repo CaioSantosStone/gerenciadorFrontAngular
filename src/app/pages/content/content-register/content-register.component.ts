@@ -53,12 +53,30 @@ export class ContentRegisterComponent implements OnInit {
   async loadContent() {
     try {
       this.content = (await this.contentService.getById(this.id)).content;
+      
+      if(this.content.images.length > 0){
+        for(let i = 0; i < this.content.images.length; i++){
+          this.arrayImg.push({
+            id: i,
+            url: this.content.images[i]
+          })
+        }
+        this.content.img = true
+      }
     } catch (err) {
     }
   }
 
   async save() {
     try {
+      let arrayEntityLocal = JSON.parse(localStorage.getItem('entity'))
+      if(arrayEntityLocal){
+        if(!this.content.mainImg){
+          this.content.mainImg = arrayEntityLocal[0] 
+        }else{
+          this.content.images = arrayEntityLocal
+        }
+      }
       await this.contentService.create(this.content);
       this.goToList('Conteúdo criado com sucesso');
     } catch (err) {
@@ -68,7 +86,14 @@ export class ContentRegisterComponent implements OnInit {
 
   async update() {
     try {
-      this.content.arrayImg = this.arrayImg
+      let arrayEntityLocal = JSON.parse(localStorage.getItem('entity'))
+      if(arrayEntityLocal){
+        if(!this.content.mainImg){
+          this.content.mainImg = arrayEntityLocal[0] 
+        }else{
+          this.content.images = arrayEntityLocal
+        }
+      }
       await this.contentService.update(this.content);
       this.goToList('Conteúdo atualizado com sucesso');
     } catch (err) {
@@ -86,6 +111,7 @@ export class ContentRegisterComponent implements OnInit {
   newImg() {
     this.arrayImg.push({
       id : new Date().toString(),
+      url: ''
     })
     this.content.img = true
   }

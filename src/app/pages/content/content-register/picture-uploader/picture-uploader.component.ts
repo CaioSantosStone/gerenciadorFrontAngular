@@ -69,13 +69,16 @@ export class BaPictureUploader {
           console.log(err)
         }
         if (data){
-          var entity = {
-            alter : that.type,
-            pictureURL : data.Location,
-            guid : that.guid
+          let arrayEntityLocal = JSON.parse(localStorage.getItem('entity'))
+          let arrayEntity
+
+          if(!arrayEntityLocal){
+            arrayEntity = []
+          }else{
+            arrayEntity = arrayEntityLocal
           }
-          console.log(data)
-          localStorage.setItem('entity', JSON.stringify(entity));
+          arrayEntity.push(data.Location)
+          localStorage.setItem('entity', JSON.stringify(arrayEntity));
 
         }
         
